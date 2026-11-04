@@ -3,6 +3,7 @@
  * Lógica de los endpoints de registro e inicio de sesión.
  */
 const store = require('../services/user.store');
+const { crearToken } = require('../services/token');
 
 /** Valida que usuario y contraseña lleguen como texto no vacío. */
 function datosValidos(body) {
@@ -51,7 +52,11 @@ function login(req, res) {
     // Mensaje genérico: no revela si falló el usuario o la contraseña
     return res.status(401).json({ mensaje: 'Error en la autenticación' });
   }
-  return res.status(200).json({ mensaje: 'Autenticación satisfactoria' });
+  // Se entrega un token que se usa en las demás rutas (Authorization: Bearer ...)
+  return res.status(200).json({
+    mensaje: 'Autenticación satisfactoria',
+    token: crearToken(req.body.usuario.trim()),
+  });
 }
 
 module.exports = { registro, login };

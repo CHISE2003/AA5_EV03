@@ -1,7 +1,7 @@
 {
   "name": "servicio-auth-techfix",
-  "version": "1.0.0",
-  "description": "Servicio web REST de registro e inicio de sesión (GA7-220501096-AA5-EV01)",
+  "version": "2.0.0",
+  "description": "API REST de TechFix Solutions: autenticación, clientes, equipos y órdenes de servicio (GA7-220501096-AA5-EV03)",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
