@@ -7,6 +7,7 @@ const os = require('os');
 const path = require('path');
 
 // Usa un archivo temporal para no tocar datos reales
+process.env.DATA_DIR = path.join(os.tmpdir(), `techfix-${Date.now()}`);
 process.env.DATA_FILE = path.join(os.tmpdir(), `users-${Date.now()}.json`);
 const app = require('../src/app');
 
